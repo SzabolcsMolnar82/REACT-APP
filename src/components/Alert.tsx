@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const Alert = () => {
+
+
+interface Props {
+    children: ReactNode;
+}
+
+
+const Alert = ({children}: Props) => {
   return (
-    <div>Alert</div>
+    <div className='alert alert-primary'>{children}</div>
   )
 }
 
