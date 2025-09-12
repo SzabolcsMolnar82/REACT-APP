@@ -1,22 +1,16 @@
-import React, { ReactNode, useState } from "react";
+import React from 'react'
+
 
 interface Props {
-  children: ReactNode;
+  children: string;
+  color?: 'primary' | 'secondary'  |'danger';
+  onClick: () => void
 }
-const Button = ({ children }: Props) => {
-  const [clickCount, setClickCount] = useState(0);
 
-  const handleClick = () => {
-    const newCount = clickCount + 1;
-    setClickCount(newCount);
-    console.log(`Button clicked ${newCount} times`);
-  };
-
+const Button = ({children, onClick, color = 'primary'}: Props) => {
   return (
-    <button type="button" className="btn btn-primary" onClick={handleClick}>
-      {children}
-    </button>
-  );
-};
+    <button className={'btn btn-' + color} onClick={onClick}>{children}</button>
+  )
+}
 
-export default Button;
+export default Button 
